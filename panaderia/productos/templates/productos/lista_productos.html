@@ -1,0 +1,28 @@
+{% extends 'productos/base.html' %}
+
+{% load static %}
+
+{% block title %}Resultados de Búsqueda{% endblock title %}
+
+{% block content %}
+    <div class="resultados-busqueda">
+        <h1>Resultados de Búsqueda</h1>
+        <ul>
+            <li class="encabezado">
+                <span>Producto</span>
+                <span>Precio</span>
+                <span>Stock</span>
+            </li>
+            {% for producto in productos %}
+                <li>
+                    <span>{{ producto.nombre }}</span>
+                    <span>{{ producto.precio }}</span>
+                    <span>{{ producto.stock }}</span>
+                </li>
+            {% empty %}
+                <li>No se encontraron productos.</li>
+            {% endfor %}
+        </ul>
+        <a class="enlace-volver" href="{% url 'buscar_producto' %}">Volver a buscar</a>
+    </div>
+{% endblock content %}

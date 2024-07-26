@@ -1,0 +1,16 @@
+{% extends 'productos/base.html' %}
+
+{% load static %}
+
+{% block title %}Agregar Producto{% endblock title %}
+
+{% block content %}
+    <div style="text-align: center;">
+        <h1>Agregar Producto</h1>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+{% endblock content %}

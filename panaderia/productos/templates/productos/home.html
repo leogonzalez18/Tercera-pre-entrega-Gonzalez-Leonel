@@ -1,0 +1,26 @@
+{% extends 'productos/base.html' %}
+
+{% load static %}
+
+{% block title %}Inicio{% endblock title %}
+
+{% block content %}
+    <div style="text-align: center;">
+        <h1>Bienvenido a la Panadería </h1>
+        <p>¡Explora nuestras opciones y productos!</p>
+    </div>
+
+    <!-- Mostrar mensajes -->
+    {% if messages %}
+        <div class="messages">
+            <ul>
+                {% for message in messages %}
+                    <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+
+    <img src="{% static 'productos/img/img_01.jpg' %}" alt="Imagen de Panadería" style="display: block; margin: 0 auto; width: 100%; max-width: 300px;">
+{% endblock content %}
